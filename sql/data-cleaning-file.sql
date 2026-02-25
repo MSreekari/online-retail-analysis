@@ -67,7 +67,7 @@ SELECT COUNT(*)
 from retail_staging2 
 WHERE quantity < 0;
 
--- FInd records with orders with invoice starting from 'C' 
+-- Find records with with invoice starting from 'C' 
 SELECT * 
 from retail_staging2 
 WHERE invoice LIKE 'c%';
@@ -76,14 +76,17 @@ WHERE invoice LIKE 'c%';
 CREATE TABLE retail_sales_cleaned AS 
 SELECT * 
 from retail_staging2 
-WHERE quantity < 0 
-AND invoice LIKE 'c%';
+WHERE quantity > 0 
+AND invoice NOT LIKE 'c%';
 
 -- Check if the table contains cleaned values 
 SELECT * 
 from retail_sales_cleaned 
 WHERE quantity < 0 
-AND invoice LIKE 'c%;'
+AND invoice LIKE 'c%';
+
+SELECT * 
+from retail_sales_cleaned;
 
 
 
