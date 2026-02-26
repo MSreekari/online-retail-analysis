@@ -134,6 +134,13 @@ SET Order_year = YEAR(InvoiceDate),
 SELECT * 
 from retail_sales_cleaned;
 
+SELECT * 
+from retail_sales_cleaned 
+WHERE price = 0 AND revenue = 0;
+
+DELETE 
+from retail_sales_cleaned 
+WHERE price = 0 AND revenue = 0;
 
 
 
