@@ -70,14 +70,21 @@ WHERE quantity < 0;
 -- Find records with with invoice starting from 'C' 
 SELECT * 
 from retail_staging2 
-WHERE invoice LIKE 'c%';
+WHERE invoice LIKE 'c%'; 
+
+-- Found empty customer id's 
+SELECT * 
+from retail_sales_cleaned 
+WHERE `customer id` = '';
 
 -- Create a final cleaned table without duplicates, negative quantity and unwanted values 
 CREATE TABLE retail_sales_cleaned AS 
 SELECT * 
 from retail_staging2 
 WHERE quantity > 0 
-AND invoice NOT LIKE 'c%';
+AND invoice NOT LIKE 'c%' 
+AND `customer id` IS NOT NULL 
+AND `customer id` != '';
 
 -- Check if the table contains cleaned values 
 SELECT * 
@@ -144,15 +151,7 @@ DELETE
 from retail_sales_cleaned 
 WHERE price = 0 AND revenue = 0;
 
--- Found empty customer id's 
-SELECT * 
-from retail_sales_cleaned 
-WHERE `customer id` = '';
 
--- Deleted them from the table 
-DELETE 
-from retail_sales_cleaned 
-WHERE `customer id` = '';
 
 
 
