@@ -88,11 +88,51 @@ AND invoice LIKE 'c%';
 SELECT * 
 from retail_sales_cleaned;
 
+-- Count the rows in the cleaned table
+SELECT COUNT(*) 
+from retail_sales_cleaned;
 
+-- Add revenue column to the table 
+ALTER TABLE retail_sales_cleaned 
+ADD COLUMN revenue DECIMAL(10, 2);
 
+-- Populate the column with revenue values 
+UPDATE retail_sales_cleaned 
+SET revenue = quantity * price;
 
+-- Check the maximum and minimum revenue 
+SELECT MAX(revenue) 
+from retail_sales_cleaned;
 
+SELECT MIN(revenue) 
+from retail_sales_cleaned;
 
+-- Convert the invoice date column to DATETIME 
+SELECT InvoiceDate, str_to_date(InvoiceDate, '%m-%d-%Y %H:%i') AS invoice_date
+from retail_sales_cleaned;
+
+ALTER TABLE retail_sales_cleaned 
+MODIFY COLUMN InvoiceDate DATETIME;
+
+UPDATE retail_sales_cleaned 
+SET InvoiceDate = str_to_date(InvoiceDate, '%d-%m-%Y %H:%i');
+
+-- Check all the columns and ther type 
+DESCRIBE retail_sales_cleaned;
+
+-- Add time columns for analysis 
+ALTER TABLE retail_sales_cleaned 
+ADD COLUMN Order_year INT, 
+ADD COLUMN Order_month INT, 
+ADD COLUMN Order_day INT;
+
+UPDATE retail_sales_cleaned 
+SET Order_year = YEAR(InvoiceDate),
+	Order_month = MONTH(InvoiceDate), 
+    Order_day = DAY(InvoiceDate); 
+    
+SELECT * 
+from retail_sales_cleaned;
 
 
 
