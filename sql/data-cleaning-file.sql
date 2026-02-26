@@ -134,14 +134,25 @@ SET Order_year = YEAR(InvoiceDate),
 SELECT * 
 from retail_sales_cleaned;
 
+-- Find unwanted values from price column and reveue column
 SELECT * 
 from retail_sales_cleaned 
 WHERE price = 0 AND revenue = 0;
 
+-- Deleted unwanted values from price column and reveue column
 DELETE 
 from retail_sales_cleaned 
 WHERE price = 0 AND revenue = 0;
 
+-- Found empty customer id's 
+SELECT * 
+from retail_sales_cleaned 
+WHERE `customer id` = '';
+
+-- Deleted them from the table 
+DELETE 
+from retail_sales_cleaned 
+WHERE `customer id` = '';
 
 
 
