@@ -7,6 +7,7 @@ SELECT COUNT(DISTINCT country) AS country_count
 from retail_sales_cleaned;
 
 -- 1. Revenue by country 
+CREATE VIEW country_performance AS 
 SELECT country, 
 SUM(revenue) AS total_revenue 
 from retail_sales_cleaned 

@@ -15,6 +15,7 @@ GROUP BY order_year
 ORDER BY order_year;
 
 -- 3. Monthly Revenue Trend 
+CREATE VIEW monthly_trend AS 
 SELECT order_year, order_month, SUM(revenue) AS monthly_revenue 
 from retail_sales_cleaned 
 GROUP BY order_year, order_month 
