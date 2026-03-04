@@ -8,12 +8,13 @@ SELECT `customer id`,
 COUNT(DISTINCT invoice) AS num_orders, 
 SUM(revenue) AS total_revenue
 from retail_sales_cleaned 
-GROUP BY `customer id` 
+GROUP BY `customer id`
 ORDER BY num_orders DESC 
-LIMIT 10;
+LIMIT 10; 
 
 -- 2. Average Order Value (AOV) per customer 
-SELECT `customer id` AS customer_id, 
+ CREATE VIEW avg_order_value AS 
+ SELECT `customer id` AS customer_id, 
 SUM(revenue) / COUNT(DISTINCT invoice) AS avg_order_value 
 from retail_sales_cleaned 
 GROUP BY `customer_id`

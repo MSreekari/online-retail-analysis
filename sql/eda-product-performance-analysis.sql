@@ -1,6 +1,7 @@
 -- 2. Product Performance Analysis 
 
 -- 1. Top 10 products by revenue 
+CREATE VIEW product_performance AS 
 SELECT description AS product, 
 SUM(revenue) AS total_revenue, 
 SUM(quantity) AS total_units 
@@ -49,7 +50,7 @@ SUM(quantity) AS total_quantity
 from retail_sales_cleaned 
 GROUP BY product 
 ORDER BY total_quantity DESC 
-LIMIT 10;
+LIMIT 10; 
 
 
 
