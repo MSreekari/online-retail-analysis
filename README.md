@@ -33,6 +33,10 @@ It includes details of customer purchases such as invoice numbers, product descr
 - Duplicate entries
 - Negative quantities (product returns)
 
+## Pipeline Architecture 
+
+<img src="pipeline-architecture.png" width="800"> 
+
 ## Steps Followed 
 
 ## 1. Data Acquisition
@@ -118,8 +122,11 @@ Each layer progressively removes unwanted or duplicate records to prepare the da
 The following dashboards were created to visualize decision-critical KPIs:
 
 - Monthly Revenue Trends
+  <img src="reports/monthly_revenue_dashboard.png" width="800"> 
 - Country-wise Revenue Performance
-- Product Revenue Contribution 
+  <img src="reports/revenue_by_country_dashboard.png" width="800"> 
+- Product Revenue Contribution
+  <img src="reports/product_performance_dashboard.png" width="800"> 
 
 ## Analytical Techniques
 
