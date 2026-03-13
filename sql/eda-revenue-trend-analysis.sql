@@ -21,11 +21,11 @@ from retail_sales_cleaned
 GROUP BY order_year, order_month 
 ORDER BY order_year, order_month;
 
--- 4. Average Order Value Per Month 
+-- 4. Average Monthly Revenue
 SELECT order_year, order_month, AVG(revenue) AS avg_monthly_revenue 
 from retail_sales_cleaned 
 GROUP BY order_year, order_month 
-ORDER BY order_year, order_month;
+ORDER BY order_year, order_month;  
 
 -- 5. Cumulative Revenue 
 WITH monthly_revenue AS (

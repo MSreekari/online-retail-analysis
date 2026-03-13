@@ -1,7 +1,7 @@
-SELECT * 
+SELECT COUNT(*) 
 from retail_2009;
 
-SELECT * 
+SELECT COUNT(*) 
 from retail_2010;
 
 -- Combine both the tables retail_2009 and retail_2010 using union all
@@ -10,7 +10,7 @@ SELECT *
 from retail_2009 
 UNION ALL 
 SELECT * 
-from retail_2010;
+from retail_2010; 
 
 SELECT * 
 from retail_combined;
@@ -65,17 +65,17 @@ from retail_staging2;
 -- Find negative quantity records
 SELECT COUNT(*) 
 from retail_staging2 
-WHERE quantity < 0;
+WHERE quantity < 0; 
 
 -- Find records with with invoice starting from 'C' 
-SELECT * 
+SELECT COUNT(*)  
 from retail_staging2 
 WHERE invoice LIKE 'c%'; 
 
 -- Found empty customer id's 
-SELECT * 
-from retail_sales_cleaned 
-WHERE `customer id` = '';
+SELECT COUNT(*)  
+from retail_staging2
+WHERE `customer id` = ''; 
 
 -- Create a final cleaned table without duplicates, negative quantity and unwanted values 
 CREATE TABLE retail_sales_cleaned AS 
@@ -97,7 +97,7 @@ from retail_sales_cleaned;
 
 -- Count the rows in the cleaned table
 SELECT COUNT(*) 
-from retail_sales_cleaned;
+from retail_sales_cleaned; 
 
 -- Add revenue column to the table 
 ALTER TABLE retail_sales_cleaned 
