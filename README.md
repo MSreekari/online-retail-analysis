@@ -1,4 +1,4 @@
-# Retail Sales Analytics Pipeline using MySQL & Excel 
+# Retail Sales ETL Pipeline using MySQL & Excel 
 
 ## Project Overview 
 
@@ -32,6 +32,10 @@ It includes details of customer purchases such as invoice numbers, product descr
 - Zero-value transactions
 - Duplicate entries
 - Negative quantities (product returns)
+
+## Pipeline Architecture 
+
+<img src="pipeline-architecture.png" width="800"> 
 
 ## Steps Followed 
 
@@ -79,7 +83,20 @@ Duplicate tables were created to:
 - Preserve the original raw dataset
 - Apply cleaning operations incrementally
 - Avoid irreversible data loss during transformation
-- Enable rollback in case of cleaning errors 
+- Enable rollback in case of cleaning errors
+
+## Data Cleaning & Layer Summary 
+
+| Table Name             | No. of Rows | Notes / Cleaning Applied                                          |
+| ---------------------- | ----------- | ----------------------------------------------------------------- |
+| `retail_2009`          | 1,049       | Only 2009 data                                                    |
+| `retail_2010`          | 29,358      | Only 2010 data                                                    |
+| `retail_combined`      | 30,407      | Combined 2009 & 2010 datasets                                     |
+| `retail_staging`       | 30,407      | Initial staging table                                             |
+| `retail_staging2`      | 29,878      | Removed duplicate records                                         |
+| `retail_sales_cleaned` | 29,825      | Removed negative quantities, cancelled orders, empty Customer IDs |
+
+Each layer progressively removes unwanted or duplicate records to prepare the dataset for analysis. 
 
 ## 5. Business Questions Addressed
 
@@ -105,8 +122,11 @@ Duplicate tables were created to:
 The following dashboards were created to visualize decision-critical KPIs:
 
 - Monthly Revenue Trends
+  <img src="reports/monthly_revenue_dashboard.png" width="800"> 
 - Country-wise Revenue Performance
-- Product Revenue Contribution 
+  <img src="reports/revenue_by_country_dashboard.png" width="800"> 
+- Product Revenue Contribution
+  <img src="reports/product_performance_dashboard.png" width="800"> 
 
 ## Analytical Techniques
 
