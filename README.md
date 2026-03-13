@@ -205,7 +205,7 @@ To categorize products into performance tiers for prioritization.
 
 1. Total Revenue : 674325.56
 2. Yearly Revenue : 2009 - 23095.54, 2010 - 570422.73, 2011 - 80807.29
-3. AOV Per Year : 2009 - 23.736423, 2010 - 22.221376, 2011 - 25.395126
+3. Average Monthly Revenue : 2009 - 23.736423, 2010 - 22.221376, 2011 - 25.395126
 4. Cumulative Revenue Per Year :
    |     Year     | Monthly revenue | Yearly revenue3 |
    |--------------|-----------------|-----------------|
